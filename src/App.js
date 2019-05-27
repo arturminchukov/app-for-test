@@ -1,26 +1,42 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.less';
+import {WelcomePage} from './pages/WelcomePage/WelcomePage';
+import {Main} from './pages/Main/Main';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isWelcomePage: true,
+        };
+
+        this.handleClickWelcomePage = this.handleClickWelcomePage.bind(this);
+    }
+
+    handleClickWelcomePage() {
+        this.setState({
+            isWelcomePage: false
+        })
+    }
+
+    render() {
+        const {isWelcomePage} = this.state;
+
+        if(isWelcomePage){
+            return (
+                <div className="App">
+                    <WelcomePage handleClick={this.handleClickWelcomePage}/>
+                </div>
+            )
+        }
+
+        return (
+            <div className="App">
+                <Main/>
+            </div>
+        )
+    };
 }
 
 export default App;
