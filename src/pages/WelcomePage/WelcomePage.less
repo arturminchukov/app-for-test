@@ -11,22 +11,32 @@
 }
 
 .WelcomePage__container {
+  height: 40%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
   padding: 0 30px;
 
+  & > h1{
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0 30px 30px 30px;
+    color: #464646;
+    text-align: center;
+  }
   & > button{
     width: 30%;
     min-width: 200px;
     max-width: 400px;
     height: 70px;
     font-size: 24px;
-    background: green;
+    background: #55b45a;
     border-radius: 20px;
     border: 0;
     box-shadow:  0 0 5px black;
+    background: -webkit-gradient(linear, left top, left bottom, from(#077414), to(#87f470));
+    color: white;
   }
 
   & > button:focus {

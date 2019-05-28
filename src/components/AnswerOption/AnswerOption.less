@@ -1,0 +1,39 @@
+@import '../../animation.less';
+
+.AnswerOption__button {
+    height: 40px;
+    background: linear-gradient(90deg, #0a1050, #3c1261);
+    border: 0;
+    border-radius: 50px;
+    min-width: 500px;
+    margin-bottom: 50px;
+    color: #d9e1fd;
+    font-size: 18px;
+    box-shadow: 0 0 5px 5px #ffffff;
+    transition: box-shadow 0.3s ease;
+    &:focus{
+        outline: 0;
+    }
+    &:active{
+        box-shadow: 0 0 2px #ffffff;
+    }
+    &:hover{
+        background: linear-gradient(90deg, #0c1585, #661799);
+    }
+    &:last-child{
+        margin-bottom: 0;
+    }
+    &_chosen{
+        .blink();
+    }
+    &_correct{
+        background: linear-gradient(90deg, #3b8522, #8f9922);
+    }
+    &_incorrect{
+        background: linear-gradient(90deg, #850e08, #993682);
+    }
+}
+
+.AnswerOption__button:last-child{
+    margin-bottom: 0;
+}

@@ -7,6 +7,7 @@ export default [
             C: '1961',
             D: 'Еще не отменили',
         },
+        score: 100,
         right: 'A'
     }, {
         question: 'Как на английском будет "Доброе утро"',
@@ -16,6 +17,7 @@ export default [
             C: 'Good morning',
             D: 'Pink brown red',
         },
+        score: 200,
         right: 'C'
     }
 ]
