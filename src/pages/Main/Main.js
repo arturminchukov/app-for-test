@@ -10,11 +10,24 @@ export class Main extends React.Component {
         this.handleClickAnswer = this.handleClickAnswer.bind(this);
         this.state = {
             currentQuestion: 0,
+            score: 0
         }
     }
 
     handleClickAnswer(key) {
-        console.log(key);
+        const {currentQuestion} = this.state;
+        let score = this.state.score;
+        score += key ? test[currentQuestion].score : 0;
+
+        if(currentQuestion === test.length - 1){
+            // finishGame();
+            console.log(score);
+        } else {
+            this.setState({
+                currentQuestion: currentQuestion + 1,
+                score,
+            })
+        }
     }
 
     render() {
