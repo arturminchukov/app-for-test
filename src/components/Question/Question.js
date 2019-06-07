@@ -48,6 +48,7 @@ export function Question({question, answers, handleAnswer, rightAnswer}) {
                         handleClick={handleClick}
                         key={answerKey}
                         mode={answerKey === userAnswer ? mode : null}
+                        id={answerKey}
                     />)}
             </div>
         </div>

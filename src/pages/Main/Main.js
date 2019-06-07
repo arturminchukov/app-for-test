@@ -3,6 +3,8 @@ import test from '../../tests/father-birthday-test';
 import {Question} from '../../components/Question/Question';
 import './Main.less';
 
+const {questions} = test;
+
 export class Main extends React.Component {
     constructor(props) {
         super(props);
@@ -17,10 +19,10 @@ export class Main extends React.Component {
     handleClickAnswer(key) {
         const {currentQuestion} = this.state;
         let score = this.state.score;
-        score += key ? test[currentQuestion].score : 0;
+        score += key ? questions[currentQuestion].score : 0;
 
-        if(currentQuestion === test.length - 1){
-            // finishGame();
+        if(currentQuestion === questions.length - 1){
+            this.props.finishMainPage({page: 'Main', score});
             console.log(score);
         } else {
             this.setState({
@@ -36,10 +38,10 @@ export class Main extends React.Component {
         return (
             <div className="Main">
                 <Question
-                    question={test[currentQuestion].question}
-                    answers={test[currentQuestion].answers}
+                    question={questions[currentQuestion].question}
+                    answers={questions[currentQuestion].answers}
                     handleAnswer={this.handleClickAnswer}
-                    rightAnswer={test[currentQuestion].right}
+                    rightAnswer={questions[currentQuestion].right}
                 />
             </div>
         );
