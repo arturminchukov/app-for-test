@@ -30,7 +30,7 @@ class App extends React.Component {
         this.setState(prevState => ({
             pagePriority: prevState.pagePriority + 1,
             testState: {
-                ...prevState,
+                ...prevState.testState,
                 ...payload
             }
         }));
@@ -44,7 +44,7 @@ class App extends React.Component {
 
         if (pageKey === 'WelcomePage') {
             props = {
-                handleClick: this.nextPage
+                startGame: this.nextPage
             }
         }
 

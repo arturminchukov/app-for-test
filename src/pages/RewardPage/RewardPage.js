@@ -18,31 +18,39 @@ export class RewardPage extends React.Component {
         this.handleGetPrises = this.handleGetPrises.bind(this);
     }
 
-    handleClickReward(id) {
-        return () => {
-            const {chosenPrises, balance} = this.state;
-            let newChosenPrises;
-            let newBalance = balance;
-            let notification = '';
-
-            if (chosenPrises.includes(id)) {
-                newChosenPrises = chosenPrises.filter(prise => prise !== id);
-                newBalance += rewards[id].price;
-            } else {
-                newChosenPrises = [...chosenPrises, id];
-                if(newBalance - rewards[id].price > 0 ){
-                    newBalance-=rewards[id].price;
-                } else {
-                    notification = `У вас недостаточно очков для получения ${rewards[id].name}`;
-                }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(this.state.notification){
+            if(this.notificationTimer){
+                clearTimeout(this.notificationTimer);
             }
 
-            this.setState({
-                chosenPrises: newChosenPrises,
-                balance: newBalance,
-                notification
-            })
+            this.notificationTimer = setTimeout((context)=> context.setState({notification:''}), 2000, this);
         }
+    }
+
+    handleClickReward(id) {
+        const {chosenPrises, balance} = this.state;
+        let newChosenPrises = [...chosenPrises];
+        let newBalance = balance;
+        let notification = '';
+
+        if (chosenPrises.includes(id)) {
+            newChosenPrises = chosenPrises.filter(prise => prise !== id);
+            newBalance += rewards[id].price;
+        } else {
+            if (newBalance - rewards[id].price > 0) {
+                newChosenPrises = [...chosenPrises, id];
+                newBalance -= rewards[id].price;
+            } else {
+                notification = `У вас недостаточно очков для получения ${rewards[id].name}`;
+            }
+        }
+
+        this.setState({
+            chosenPrises: newChosenPrises,
+            balance: newBalance,
+            notification
+        })
     }
 
     handleGetPrises() {
@@ -50,13 +58,9 @@ export class RewardPage extends React.Component {
         const remainPrises = rewards.filter((el, id) => !chosenPrises.includes(id));
 
         if (remainPrises.some(el => el.price < balance)) {
-            this.setState({
-                notification: notificationIfExistBalance
-            });
-
-            setTimeout(callback => callback({notification: ''}), 2000, this.setState);
+            this.setState({notification: notificationIfExistBalance});
         } else {
-            this.props.finishGame({prises:rewards.filter({prises: (el, id) => chosenPrises.includes(id)})});
+            this.props.finishGame({prises: rewards.filter((el, id) => chosenPrises.includes(id))});
         }
     }
 
@@ -76,8 +80,9 @@ export class RewardPage extends React.Component {
                     {rewards.map((reward, id) =>
                         <AnswerOption
                             answerKey={reward.price}
+                            key={reward.price + reward.name}
                             answer={reward.name}
-                            handleClick={this.handleClickReward}
+                            handleClick={() => this.handleClickReward(id)}
                             id={id}
                             mode={chosenPrises.includes(id) ? 'selected-prise' : 'prise'}
                         />)}

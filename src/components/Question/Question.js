@@ -7,7 +7,7 @@ export function Question({question, answers, handleAnswer, rightAnswer}) {
     const [userAnswer, setUserAnswer] = useState(false);
     const [isShowRightAnswer, setIsShowRightAnswer] = useState(false);
 
-    const handleClick = key => () => {
+    const handleClick = (key) => {
         if(userAnswer){
             return;
         }
@@ -19,9 +19,9 @@ export function Question({question, answers, handleAnswer, rightAnswer}) {
         }, 2000);
 
         setTimeout(() => {
-            handleAnswer(key===rightAnswer);
             setIsShowRightAnswer(false);
             setUserAnswer(false);
+            handleAnswer(key===rightAnswer);
         }, 4000);
     };
 
@@ -45,10 +45,9 @@ export function Question({question, answers, handleAnswer, rightAnswer}) {
                     <AnswerOption
                         answer={answers[answerKey]}
                         answerKey={answerKey}
-                        handleClick={handleClick}
+                        handleClick={() => handleClick(answerKey)}
                         key={answerKey}
                         mode={answerKey === userAnswer ? mode : null}
-                        id={answerKey}
                     />)}
             </div>
         </div>
