@@ -76,10 +76,10 @@ export class RewardPage extends React.Component {
             <div className="RewardPage">
                 <div className="RewardPage__about">
                     <h1 className="RewardPage__header">Отлично вы набрали
-                        <b className="RewardPage__score">${score}</b>
+                        <b className="RewardPage__score"> ${score} </b>
                         очков. И теперь вы можете их потратить на то, на что
                         только пожелаете, ну и если их хватает</h1>
-                    <h1>У вас осталось <b>${balance}</b> очков</h1>
+                    <h1 className="RewardPage__balance">Ваш баланс: <b className="RewardPage__score">${balance}</b></h1>
                 </div>
                 <div className="RewardPage__rewards">
                     {rewards.map((reward, id) =>
