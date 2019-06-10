@@ -1,0 +1,36 @@
+.EndGamePage {
+    width: 100%;
+    height: 100%;
+    background: url('../../assets/img/petal.png');
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    &__header {
+        font-size: 36px;
+        font-weight: bold;
+        width: 70%;
+        color: #8b571c;
+        padding: 30px;
+        text-align: center;
+    }
+
+    &__prises-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    &__prise {
+        font-weight: bold;
+        color: #113e13;
+        font-size: 48px;
+        margin-bottom: 20px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

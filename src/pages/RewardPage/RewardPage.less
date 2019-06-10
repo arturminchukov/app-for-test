@@ -1,17 +1,20 @@
-.RewardPage{
+.RewardPage {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
+
     &__header {
         font-size: 28px;
         width: 80%;
         padding: 50px;
     }
-    &__score{
+
+    &__score {
         color: red;
         font-size: 32px;
     }
+
     &__balance {
         font-size: 28px;
         width: 80%;
@@ -20,13 +23,32 @@
         align-items: center;
     }
 
-    &__rewards{
-        padding:80px;
+    &__rewards {
+        padding: 80px;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
         flex-direction: column;
     }
+
+    &__get-prises {
+        width: 150px;
+        height: 150px;
+        color: #ffffff;
+        font-size: 28px;
+        padding-bottom: 20px;
+        background: linear-gradient(90deg, #85610f, #f0a123);
+        opacity: 0.8;
+        transition: all 300ms;
+        border: 0;
+        border-radius: 50%;
+
+        &:hover {
+            background: linear-gradient(90deg, #85610f, #f0a123);
+            opacity: 1;
+        }
+    }
+
     &__notification {
         opacity: 0;
         width: 600px;
@@ -45,7 +67,8 @@
         border-radius: 20px;
         z-index: 10;
         padding: 10px;
-        &_show{
+
+        &_show {
             opacity: 1;
             transform: translate(-50%, 300px);
         }
