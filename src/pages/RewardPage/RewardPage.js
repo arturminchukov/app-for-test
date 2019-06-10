@@ -92,7 +92,7 @@ export class RewardPage extends React.Component {
                             mode={chosenPrises.includes(id) ? 'selected-prise' : 'prise'}
                         />)}
                 </div>
-                <button onClick={this.handleGetPrises}>Получить призы!!!</button>
+                <button onClick={this.handleGetPrises} className="RewardPage__get-prises">Получить призы!!!</button>
                 <div
                     className={`RewardPage__notification ${notification && 'RewardPage__notification_show'}`}>{notification}</div>
             </div>
