@@ -1,4 +1,32 @@
 .RewardPage{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    &__header {
+        font-size: 28px;
+        width: 80%;
+        padding: 50px;
+    }
+    &__score{
+        color: red;
+        font-size: 32px;
+    }
+    &__balance {
+        font-size: 28px;
+        width: 80%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    &__rewards{
+        padding:80px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+    }
     &__notification {
         opacity: 0;
         width: 600px;
@@ -19,7 +47,9 @@
         padding: 10px;
         &_show{
             opacity: 1;
-            transform: translate(-50%, 400px);
+            transform: translate(-50%, 300px);
         }
     }
+
+
 }

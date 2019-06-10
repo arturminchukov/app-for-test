@@ -10,7 +10,7 @@
     color: #d9e1fd;
     font-size: 18px;
     box-shadow: 0 0 5px 5px #ffffff;
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease, background-color 500ms;
     &:focus{
         outline: 0;
     }
@@ -36,6 +36,19 @@
         background: linear-gradient(90deg, #850e08, #993682);
         &:hover{
             background: linear-gradient(90deg, #850e08, #993682);
+        }
+    }
+    &_selected-prise{
+        background: linear-gradient(90deg, #2e8565, #2d9923);
+        &:hover{
+            background: linear-gradient(90deg, #2e8565, #2d9923);
+            opacity: 0.8;
+        }
+    }
+    &_prise{
+        background: linear-gradient(90deg, #5e7b85, #93997f);
+        &:hover{
+            background: linear-gradient(90deg, #2e8565, #2d9923);
         }
     }
 }
