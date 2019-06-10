@@ -1,9 +1,11 @@
 import * as React from 'react';
 import test from '../../tests/father-birthday-test';
 import {AnswerOption} from '../../components/AnswerOption/AnswerOption';
+import './RewardPage.less';
 
 const {rewards} = test;
 const notificationIfExistBalance = 'Пожалуйста потратье все баллы. Еще есть призы на которые вам хватает баллов.';
+const DELAY_PER_SYMBOL = 60;
 
 export class RewardPage extends React.Component {
     constructor(props) {
@@ -19,12 +21,15 @@ export class RewardPage extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if(this.state.notification){
-            if(this.notificationTimer){
+        if (this.state.notification) {
+            if (this.notificationTimer) {
                 clearTimeout(this.notificationTimer);
             }
 
-            this.notificationTimer = setTimeout((context)=> context.setState({notification:''}), 2000, this);
+            const {notification} = this.state;
+            const notificationDelay = DELAY_PER_SYMBOL * notification.length > 2000 ? DELAY_PER_SYMBOL * notification.length : 2000;
+
+            this.notificationTimer = setTimeout((context) => context.setState({notification: ''}), notificationDelay, this);
         }
     }
 
@@ -42,7 +47,7 @@ export class RewardPage extends React.Component {
                 newChosenPrises = [...chosenPrises, id];
                 newBalance -= rewards[id].price;
             } else {
-                notification = `У вас недостаточно очков для получения ${rewards[id].name}`;
+                notification = `Не хватает ${rewards[id].price - newBalance} очков для получения  приза "${rewards[id].name}"`;
             }
         }
 
