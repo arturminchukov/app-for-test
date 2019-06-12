@@ -13,7 +13,8 @@ export class RewardPage extends React.Component {
         this.state = {
             chosenPrises: [],
             balance: props.score,
-            notification: ''
+            notification: '',
+            isRemainPrises: this.isRemainRewards([], props.score)
         };
 
         this.handleClickReward = this.handleClickReward.bind(this);
@@ -54,24 +55,31 @@ export class RewardPage extends React.Component {
         this.setState({
             chosenPrises: newChosenPrises,
             balance: newBalance,
-            notification
+            notification,
+            isRemainPrises: this.isRemainRewards(newChosenPrises, newBalance)
         })
     }
 
     handleGetPrises() {
         const {chosenPrises, balance} = this.state;
-        const remainPrises = rewards.filter((el, id) => !chosenPrises.includes(id));
 
-        if (remainPrises.some(el => el.price < balance)) {
+        if (this.isRemainRewards(chosenPrises, balance)) {
             this.setState({notification: notificationIfExistBalance});
         } else {
             this.props.finishGame({prises: rewards.filter((el, id) => chosenPrises.includes(id))});
         }
     }
 
+    isRemainRewards(chosenPrises, balance){
+        const remainPrises = rewards.filter((el, id) => !chosenPrises.includes(id));
+
+        return remainPrises.some(el => el.price < balance);
+    }
+
     render() {
         const {score} = this.props;
-        const {balance, chosenPrises, notification} = this.state;
+        const {balance, chosenPrises, notification, isRemainPrises} = this.state;
+
         return (
             <div className="RewardPage">
                 <div className="RewardPage__about">
@@ -92,7 +100,7 @@ export class RewardPage extends React.Component {
                             mode={chosenPrises.includes(id) ? 'selected-prise' : 'prise'}
                         />)}
                 </div>
-                <button onClick={this.handleGetPrises} className="RewardPage__get-prises">Получить призы!!!</button>
+                <button onClick={this.handleGetPrises} className={`RewardPage__get-prises ${!isRemainPrises && 'RewardPage__get-prises_active'}`}>Получить призы!!!</button>
                 <div
                     className={`RewardPage__notification ${notification && 'RewardPage__notification_show'}`}>{notification}</div>
             </div>
