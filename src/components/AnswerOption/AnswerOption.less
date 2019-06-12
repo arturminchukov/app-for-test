@@ -1,58 +1,85 @@
 @import '../../animation.less';
 
-.AnswerOption__button {
-    height: 40px;
-    background: linear-gradient(90deg, #0a1050, #3c1261);
-    border: 0;
-    border-radius: 50px;
-    min-width: 500px;
+.AnswerOption {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
     margin-bottom: 50px;
-    color: #d9e1fd;
-    font-size: 18px;
-    box-shadow: 0 0 5px 5px #ffffff;
-    transition: box-shadow 0.3s ease, background-color 500ms;
-    &:focus{
-        outline: 0;
-    }
-    &:active{
-        box-shadow: 0 0 2px #ffffff;
-    }
-    &:hover{
-        background: linear-gradient(90deg, #0c1585, #661799);
-    }
-    &:last-child{
+
+    &:last-child {
         margin-bottom: 0;
     }
-    &_chosen{
-        .blink();
-    }
-    &_correct{
-        background: linear-gradient(90deg, #3b8522, #8f9922);
-        &:hover{
+
+    &__button {
+        height: 40px;
+        background: linear-gradient(90deg, #0a1050, #3c1261);
+        border: 0;
+        border-radius: 50px;
+        min-width: 500px;
+        color: #d9e1fd;
+        font-size: 18px;
+        box-shadow: 0 0 5px 5px #ffffff;
+        transition: box-shadow 0.3s ease, background-color 500ms;
+
+        &:focus {
+            outline: 0;
+        }
+
+        &:active {
+            box-shadow: 0 0 2px #ffffff;
+        }
+
+        &:hover {
+            background: linear-gradient(90deg, #0c1585, #661799);
+        }
+
+        &_chosen {
+            .blink();
+        }
+
+        &_correct {
             background: linear-gradient(90deg, #3b8522, #8f9922);
+
+            &:hover {
+                background: linear-gradient(90deg, #3b8522, #8f9922);
+            }
         }
-    }
-    &_incorrect{
-        background: linear-gradient(90deg, #850e08, #993682);
-        &:hover{
+
+        &_incorrect {
             background: linear-gradient(90deg, #850e08, #993682);
+
+            &:hover {
+                background: linear-gradient(90deg, #850e08, #993682);
+            }
+        }
+
+        &_selected-prise {
+            background: linear-gradient(90deg, #2e8565, #2d9923);
+
+            &:hover {
+                background: linear-gradient(90deg, #2e8565, #2d9923);
+                opacity: 0.8;
+            }
+        }
+
+        &_prise {
+            background: linear-gradient(90deg, #5e7b85, #93997f);
+
+            &:hover {
+                background: linear-gradient(90deg, #2e8565, #2d9923);
+            }
         }
     }
-    &_selected-prise{
-        background: linear-gradient(90deg, #2e8565, #2d9923);
-        &:hover{
-            background: linear-gradient(90deg, #2e8565, #2d9923);
-            opacity: 0.8;
-        }
-    }
-    &_prise{
-        background: linear-gradient(90deg, #5e7b85, #93997f);
-        &:hover{
-            background: linear-gradient(90deg, #2e8565, #2d9923);
-        }
+    &__label{
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }
 
-.AnswerOption__button:last-child{
+.AnswerOption__button:last-child {
     margin-bottom: 0;
 }

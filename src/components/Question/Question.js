@@ -44,7 +44,6 @@ export function Question({question, answers, handleAnswer, rightAnswer}) {
                 {answersKeys.map(answerKey =>
                     <AnswerOption
                         answer={answers[answerKey]}
-                        answerKey={answerKey}
                         handleClick={() => handleClick(answerKey)}
                         key={answerKey}
                         mode={answerKey === userAnswer ? mode : null}

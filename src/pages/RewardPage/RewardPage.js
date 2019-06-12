@@ -92,11 +92,10 @@ export class RewardPage extends React.Component {
                 <div className="RewardPage__rewards">
                     {rewards.map((reward, id) =>
                         <AnswerOption
-                            answerKey={reward.price}
                             key={reward.price + reward.name}
                             answer={reward.name}
                             handleClick={() => this.handleClickReward(id)}
-                            id={id}
+                            answerLabel={reward.price+'$'}
                             mode={chosenPrises.includes(id) ? 'selected-prise' : 'prise'}
                         />)}
                 </div>
