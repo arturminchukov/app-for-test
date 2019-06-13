@@ -12,13 +12,26 @@ export class RewardPage extends React.Component {
         super(props);
         this.state = {
             chosenPrises: [],
-            balance: props.score,
+            balance: this.getRandScore(props.score), //little trick for fix score -> props.score ,
             notification: '',
             isRemainPrises: this.isRemainRewards([], props.score)
         };
 
         this.handleClickReward = this.handleClickReward.bind(this);
         this.handleGetPrises = this.handleGetPrises.bind(this);
+    }
+
+    getRandScore(score) {
+        const min = 35000;
+        const max = 45000;
+
+        if(score > min && score < max){
+            return score;
+        }
+
+        const round = (a, b) => Math.round(a/b)*b;
+
+        return round(Math.random() * (max - min) + min, 100);
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
