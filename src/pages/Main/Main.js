@@ -42,6 +42,7 @@ export class Main extends React.Component {
                     answers={questions[currentQuestion].answers}
                     handleAnswer={this.handleClickAnswer}
                     rightAnswer={questions[currentQuestion].right}
+                    key={currentQuestion}
                 />
             </div>
         );
