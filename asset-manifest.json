@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/birthday-test/static/css/main.158c03a4.chunk.css",
+    "main.js": "/birthday-test/static/js/main.b95ec69b.chunk.js",
+    "main.js.map": "/birthday-test/static/js/main.b95ec69b.chunk.js.map",
+    "runtime~main.js": "/birthday-test/static/js/runtime~main.244a22a1.js",
+    "runtime~main.js.map": "/birthday-test/static/js/runtime~main.244a22a1.js.map",
+    "static/js/2.eecde479.chunk.js": "/birthday-test/static/js/2.eecde479.chunk.js",
+    "static/js/2.eecde479.chunk.js.map": "/birthday-test/static/js/2.eecde479.chunk.js.map",
+    "index.html": "/birthday-test/index.html",
+    "precache-manifest.617971655f95f53bef7063e806c4f5f0.js": "/birthday-test/precache-manifest.617971655f95f53bef7063e806c4f5f0.js",
+    "service-worker.js": "/birthday-test/service-worker.js",
+    "static/css/main.158c03a4.chunk.css.map": "/birthday-test/static/css/main.158c03a4.chunk.css.map",
+    "static/media/EndGamePage.less": "/birthday-test/static/media/petal.8dc922e1.png"
+  }
+}
